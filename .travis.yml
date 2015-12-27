@@ -5,6 +5,7 @@ before_install:
 - if [[ $TRAVIS_OS_NAME == osx ]]; then brew --prefix openssl; fi
 - if [[ $TRAVIS_OS_NAME == osx ]]; then `brew --prefix openssl`/bin/openssl version; fi
 - if [[ $TRAVIS_OS_NAME == osx ]]; then brew link --force --overwrite openssl; fi
+- if [[ $TRAVIS_OS_NAME == osx ]]; then nm /usr/local/opt/openssl/lib/libssl.dylib | grep SSL_CTX_set_alpn; fi
 script: rbx -r openssl -e 'p OpenSSL::OPENSSL_VERSION_NUMBER'
 rvm:
 - rbx-2
