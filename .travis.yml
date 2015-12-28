@@ -1,6 +1,6 @@
 ---
 language: ruby
-before_script: if [[ $travis_os_name == osx ]]; then "$(brew --prefix openssl)/bin/openssl" version; fi
+before_script: if [[ $TRAVIS_OS_NAME == osx ]]; then "$(brew --prefix openssl)/bin/openssl" version; fi
 script: rbx -r openssl -e 'p OpenSSL::OPENSSL_VERSION_NUMBER'
 rvm:
 - rbx-2
